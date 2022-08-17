@@ -5,7 +5,7 @@ import { useGlobalContext } from "../Function/Context";
 import { db } from "../Utils/Firebase";
 
 const Sidebar = () => {
-  const { loader, setloader, blogs } = useGlobalContext();
+  const { blogs } = useGlobalContext();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -17,20 +17,12 @@ const Sidebar = () => {
 
   return (
     <div className="SearchSection">
-      <h3>Search</h3>
-      <div className="input">
-        <input type="text" />
-        <div className="searchIcon">
-          <img src="svg/search.svg" alt="" />
-        </div>
-      </div>
-
       <div className="recentPosts">
         <h3>Recent Posts</h3>
 
         <div className="posts">
-          {points?.map((blog) => (
-            <Link className="post" key={blog.dateId} to={`/detail/${blog.id}`}>
+          {points?.map((blog, index) => (
+            <Link className="post" key={index} to={`/detail/${blog.id}`}>
               <div className="postImg">
                 <img src={blog.imgUrl} alt="" className="" />
               </div>

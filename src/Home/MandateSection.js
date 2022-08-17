@@ -43,7 +43,7 @@ const MandateSection = () => {
           </div>
         </div>
         <div className="rightMandate">
-          <img src="ff.png" alt="" />
+          <img src="img/e.png" alt="" />
         </div>
       </div>
       <div className="buttomSet">

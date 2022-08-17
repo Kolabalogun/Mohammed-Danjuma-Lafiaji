@@ -1,10 +1,11 @@
-import { signOut } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
-import { auth, db } from "../Utils/Firebase";
+import { auth, db, provider } from "../Utils/Firebase";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
+import { tab } from "@testing-library/user-event/dist/tab";
 
 const AppContext = React.createContext();
 
@@ -30,6 +31,8 @@ const AppProvider = ({ children }) => {
     signOut(auth).then(() => {
       setuser(null);
       navigate("/");
+      signUserOut();
+
       return toast.error("You've successfully Log Out");
     });
   };
@@ -75,7 +78,7 @@ const AppProvider = ({ children }) => {
         blogsF(list);
         setloader(false);
 
-        console.log("ghghffd");
+        // console.log("ghghffd");
       },
       (error) => {
         console.log(error);
@@ -101,7 +104,32 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  // to get blog onloading from firebase
+  // to sign In for Comments
+
+  const [signInType, signInTypeF] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
+
+  const [commentUser, commentUserF] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider).then((result) => {
+      localStorage.setItem("isLoggedIn", true);
+      commentUserF(true);
+      signInTypeF("comment");
+      window.location.reload();
+    });
+  };
+
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      commentUserF(false);
+      signInTypeF(false);
+    });
+  };
 
   return (
     <AppContext.Provider
@@ -121,6 +149,11 @@ const AppProvider = ({ children }) => {
 
         blogs,
         handleDelete,
+        signInWithGoogle,
+        commentUser,
+        signInType,
+        signInTypeF,
+        signUserOut,
       }}
     >
       {children}

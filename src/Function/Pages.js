@@ -11,6 +11,7 @@ import Auth from "../Auth/Auth";
 import Details from "../Blog/Details";
 import { useState } from "react";
 import Contact from "../Pages/Contact";
+import Demo from "./Demo";
 
 const Pages = ({ user, handleLogout, loader }) => {
   const [pageType, pageTypeF] = useState(null);
@@ -67,6 +68,7 @@ const Pages = ({ user, handleLogout, loader }) => {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="*" element={<NotFound />} />
+        <Route path="/demo" element={<Demo />} />
       </Routes>
     </AnimatePresence>
   );

@@ -73,7 +73,7 @@ const Contact = () => {
                   onChange={handleChange}
                   value={email}
                   placeholder="Your Email"
-                  style={{ marginLeft: 10 }}
+                  className="secondInput"
                 />
               </div>
               <input

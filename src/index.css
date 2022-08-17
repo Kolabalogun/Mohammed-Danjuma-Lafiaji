@@ -5,6 +5,7 @@ body {
   font-family: Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 code {
@@ -633,8 +634,33 @@ aside img {
 .eachComment {
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
+  margin-top: 2px;
   padding: 10px 0;
+}
+
+.replyandName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.replyandName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reply {
+  font-weight: bold;
+  color: rgb(24, 41, 60);
+  transition: 0.3s;
+  font-size: 16px;
+  margin-bottom: 2px;
+  padding: 0px 10px;
+  cursor: pointer;
+  display: flex;
+}
+.reply > img {
+  padding: 0px 3px;
 }
 .topp {
   display: flex;
@@ -707,6 +733,9 @@ aside img {
   justify-content: space-between;
   z-index: 99;
 }
+.secondInput {
+  margin-left: 10px;
+}
 .commentFlex > input {
   width: 100%;
   padding: 0 10px;
@@ -772,6 +801,49 @@ aside img {
   display: flex;
   align-self: center;
   z-index: 99;
+}
+
+.commmetSignIn {
+  max-width: 330px;
+  margin: 30px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  background: transparent;
+  font-weight: 500;
+
+  padding: 12px 25px;
+  border: 2px solid #1f98d1;
+  border-radius: 32px;
+  transform: translate(0);
+  cursor: pointer;
+  overflow: hidden;
+}
+.commmetSignIn::before {
+  content: "";
+  position: absolute;
+  background: #1f98d1;
+  width: 10px;
+  top: 0;
+  bottom: 0;
+  left: -32px;
+  transform: rotate(-16deg);
+  filter: blur(6px);
+}
+.commmetSignIn:hover::before {
+  left: calc(100% + 32px);
+  transition: 1s;
+}
+
+.google {
+  height: 20px;
+  padding-right: 10px;
+}
+.google > img {
+  height: 100%;
 }
 
 /* AboutComponent  */
@@ -1803,6 +1875,12 @@ Media Query
   .commentForm {
     padding: 30px 10px;
   }
+  .commentFlex {
+    flex-direction: column;
+  }
+  .secondInput {
+    margin-left: 0;
+  }
   .posts {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -1864,7 +1942,7 @@ Media Query
     padding: 60px 15px;
   }
   .commentForm {
-    padding: 30px 0px;
+    padding: 30px 10px;
   }
 }
 @media (max-width: 430px) {
@@ -1873,7 +1951,7 @@ Media Query
   }
   .leftSide {
     margin: 32vh 0;
-    padding: 30px;
+    padding: 20px;
   }
   .aboutMain {
     padding: 0 20px;
@@ -1999,7 +2077,7 @@ Media Query
 @media (max-height: 635px) and (max-width: 1000px) {
   .leftSide {
     margin: 25vh 0;
-    padding: 40px;
+    /* padding: 40px; */
   }
   .leftSide > h1 {
     font-size: 30px;
@@ -2012,12 +2090,12 @@ Media Query
 }
 @media (max-height: 495px) and (max-width: 1000px) {
   .leftSide {
-    padding: 30px;
+    /* padding: 20px; */
   }
 }
 @media (max-height: 435px) and (max-width: 1000px) {
   .leftSide {
-    padding: 30px;
+    /* padding: 20px; */
   }
   .leftSide > h1 {
     font-size: 30px;
@@ -2028,8 +2106,8 @@ Media Query
 }
 @media (max-height: 405px) and (max-width: 1000px) {
   .leftSide {
-    margin: 14vh 0;
-    padding: 30px;
+    /* margin: 14vh 0; */
+    /* padding: 30px; */
   }
   .leftSide > h1 {
     font-size: 30px;
@@ -2037,8 +2115,8 @@ Media Query
 }
 @media (max-height: 380px) and (max-width: 1000px) {
   .leftSide {
-    margin: 15vh 0;
-    padding: 30px;
+    /* margin: 15vh 0; */
+    /* padding: 30px; */
   }
   .leftSide > h1 {
     font-size: 30px;

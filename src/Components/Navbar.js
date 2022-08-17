@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import { useGlobalContext } from "../Function/Context";
 
 const Navbar = () => {
-  const { navigate } = useGlobalContext();
+  const { navigate, signInType } = useGlobalContext();
   const [click, clickF] = React.useState(true);
   const [showNav, showNavF] = React.useState(true);
 
@@ -125,7 +125,7 @@ const Navbar = () => {
           Bulletin
         </Link>
 
-        {user && (
+        {user && !signInType && (
           <>
             <Link
               activeClass="active"
@@ -218,7 +218,7 @@ const Navbar = () => {
         >
           Bulletin
         </Link>
-        {user ? (
+        {user && !signInType ? (
           <>
             <Link
               activeClass="active"

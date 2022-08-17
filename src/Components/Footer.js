@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 import { useGlobalContext } from "../Function/Context";
 
 const Footer = () => {
-  const { navigate } = useGlobalContext();
+  const { navigate, handleLogout } = useGlobalContext();
   return (
     <div className="footer">
       <div className="footer-content">
@@ -126,7 +126,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-legal">
-        <div className="copyri">© Copyright. All Right Reserved</div>
+        <div onDoubleClick={handleLogout} className="copyri">
+          © Copyright. All Right Reserved
+        </div>
         <div className="compNmae">
           Powered By <a href="https://kuagiresources.com">Kuagi Resources</a>
         </div>

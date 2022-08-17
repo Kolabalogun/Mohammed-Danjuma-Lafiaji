@@ -3,7 +3,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import { useGlobalContext } from "../Function/Context";
@@ -27,9 +27,14 @@ const initialState = {
 };
 
 const Auth = ({ user, handleLogout, pageType, pageTypeF }) => {
-  const { loader, setloader, notification, notificationF } = useGlobalContext();
+  const { loader, setloader, notification, notificationF, signInTypeF } =
+    useGlobalContext();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [state, setstate] = useState(initialState);
   const [signUp, setsignUp] = useState(false);
@@ -52,6 +57,7 @@ const Auth = ({ user, handleLogout, pageType, pageTypeF }) => {
             // console.log(user);
             notificationF("");
             navigate("/");
+            signInTypeF(false);
             setloader(false);
             return toast("You've successfully Signed In");
           })

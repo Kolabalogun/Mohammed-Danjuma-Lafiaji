@@ -5,7 +5,8 @@ import { useGlobalContext } from "../Function/Context";
 // import { useGlobalContext } from "../Function/Context";
 
 const AuthNav = ({}) => {
-  const { user, handleLogout, pageType, navigate } = useGlobalContext();
+  const { user, handleLogout, pageType, navigate, signInType } =
+    useGlobalContext();
 
   const userId = user?.uid;
 
@@ -97,7 +98,7 @@ const AuthNav = ({}) => {
           </div>
         </Link>
 
-        {user ? (
+        {user && !signInType ? (
           <>
             <Link to="/createpost">
               <div
@@ -127,7 +128,7 @@ const AuthNav = ({}) => {
           </>
         )}
 
-        {userId && (
+        {userId && !signInType && (
           <>
             <div className="nav-text-sidebar">{user?.displayName}</div>
             <div
@@ -209,7 +210,7 @@ const AuthNav = ({}) => {
           Bulletin
         </Link>
 
-        {user ? (
+        {user && !signInType ? (
           <>
             {pageType === "editBlog" ? (
               ""
@@ -252,7 +253,7 @@ const AuthNav = ({}) => {
             </Link>
           </>
         )}
-        {userId && (
+        {userId && !signInType && (
           <>
             <div className="navs" style={{ display: "flex" }}>
               <div className="profileLogo">
