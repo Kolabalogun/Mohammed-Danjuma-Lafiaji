@@ -1,5 +1,4 @@
-import { collection, onSnapshot } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-scroll";
 import Loader from "../Components/Loader";
 import Navbar from "../Components/Navbar";
@@ -11,7 +10,6 @@ import CampaignBanner from "../Home/CampaignBanner";
 import Footer from "../Components/Footer";
 import MandateSection from "../Home/MandateSection";
 import AnimatedPage from "../Utils/AnimatedPage";
-import { db } from "../Utils/Firebase";
 
 const Home = () => {
   const { loader } = useGlobalContext();

@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
-import { tab } from "@testing-library/user-event/dist/tab";
 
 const AppContext = React.createContext();
 

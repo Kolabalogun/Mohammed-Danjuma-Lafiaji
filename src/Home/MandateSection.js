@@ -20,10 +20,7 @@ const MandateSection = () => {
               <img src="svg/calendar-check-line.svg" alt="" />
               <span>Job Opportunities</span>
             </div>
-            <div className="list">
-              <img src="svg/paint-brush-line.svg" alt="" />
-              <span>Transfomation</span>
-            </div>
+
             <div className="list">
               <img src="svg/database-2-line.svg" alt="" />
               <span>Transparency</span>

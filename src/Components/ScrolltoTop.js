@@ -1,13 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import React from "react";
+import { animateScroll as scroll } from "react-scroll";
 
 const ScrolltoTop = () => {
   function scrollToTop(params) {

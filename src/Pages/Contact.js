@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 import TopBar from "../Components/TopBar";
-import { useGlobalContext } from "../Function/Context";
+
 import Footer from "../Components/Footer";
 import AnimatedPage from "../Utils/AnimatedPage";
 
