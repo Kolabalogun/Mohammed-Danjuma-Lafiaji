@@ -158,6 +158,7 @@ const EditBlog = () => {
       setform({ ...snapshot.data() });
     }
   };
+
   const updateBlog = async (e) => {
     e.preventDefault();
     // console.log(form);
